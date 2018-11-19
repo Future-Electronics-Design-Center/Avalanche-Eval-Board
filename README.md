@@ -1,5 +1,5 @@
 # Avalanche Evaluation Board
-Future Electronics [Avalanche Eval Board](http://www.futureelectronics.com/en/Technologies/Product.aspx?ProductID=AVMPF300TS02NAFUTUREELECTRONICSDEVTOOLS6094600&IM=0) featuring a Microsemi PolarFire FPGA 
+Future Electronics [Avalanche Eval Board](https://www.futureelectronics.com/p/development-tools--development-tool-hardware/avmpf300ts-02-na-future-electronics-dev-tools-6094600) featuring a Microsemi PolarFire FPGA 
 
 ## Content
 
