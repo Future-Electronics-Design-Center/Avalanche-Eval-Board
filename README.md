@@ -10,5 +10,6 @@ Future Electronics [Avalanche Eval Board](https://www.futureelectronics.com/p/de
 5. Avalanche PolarFire Basic Wi-Fi Demo (Pan9320) featuring a Mi-V softcore system (PF_MiV_WiFi_Demo)
 6. Avalanche PolarFire SmartDebug / SerDes Demo. This demo is based on the 3rd hands-on laboratory from our PolarFire Avalanche seminar series held in 2018.
 7. Avalanche PolarFire Mi-V Tic-Tac-Toe Demo featuring a Mi-V softcore system supporting 2 Touchscreen TFT from Adafruit (PF_MiV_TicTacToe)
+8. Avalanche PolarFire Mi-V Base Design featuring a Mi-V softcore system with DDR3 memory interface (PF_MiV_Base_Design) Libero SoC 12.2 / Softconsole 6.1
 
-Note: All demos are built using Libero Soc 12.1 and SoftConsole 6.0
+Note: All demos are built using Libero Soc 12.1 and SoftConsole 6.0 unless indicated
