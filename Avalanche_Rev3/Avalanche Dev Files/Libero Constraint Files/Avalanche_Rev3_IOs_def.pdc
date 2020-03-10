@@ -1,0 +1,651 @@
+#-------------------------------------------------------------------------------
+# Avalanche board I/O Physical Design Constraints file
+# 
+# Board rev   : R3
+# FPGA
+#   Family    : PolarFire
+#   Die       : MPF300TS
+#   Package   : FGC484 
+#
+# Created on  : October 2017
+# Author      : Frederic Vachon
+#
+# (c) Copyright 2020 Future Electronics - Advanced Engineering Group 
+#     All rights reserved
+#-------------------------------------------------------------------------------
+
+#-------------------------------------------------------------------------------
+# FORMAT
+# Schematic Signal Name
+# set_io -port_name FPGA Signal Name \
+#	 -pin_name XX \
+#	 -fixed true \
+#	 -DIRECTION INPUT_OUTPUT
+#-------------------------------------------------------------------------------
+
+#--- FPGA External 50Mhz Clock -------------------------------------------------
+#
+# CLK1_50M is connected to CCC_NW_CKLIN_W_7 (DLL Connectivity)
+# CLK2_50M is connected to CCC_NW_CKLIN_W_5 (PLL Connectivity)
+
+#set_io -port_name CLK1_50M    \
+	-pin_name R1              	\
+	-fixed true               	\
+  -io_std LVCMOS25          	\
+	-DIRECTION INPUT
+	
+#set_io -port_name CLK2_50M  	 \
+	-pin_name J3              	\
+	-fixed true               	\
+  -io_std LVCMOS25          	\
+	-DIRECTION INPUT
+	
+
+#--- LEDs I/O ------------------------------------------------------------------
+    
+#set_io -port_name LED1_GREEN  \
+	-pin_name D6                \
+	-fixed true                 \
+	-io_std LVCMOS33            \
+	-DIRECTION OUTPUT
+
+#set_io -port_name LED1_RED    \
+	-pin_name D7                \
+	-fixed true                 \
+	-io_std LVCMOS33            \
+	-DIRECTION OUTPUT
+
+#set_io -port_name LED2_GREEN  \
+	-pin_name D8                \
+	-fixed true                 \
+	-io_std LVCMOS33            \
+	-DIRECTION OUTPUT
+
+#set_io -port_name LED2_RED    \
+	-pin_name D9                \
+	-fixed true                 \
+	-io_std LVCMOS33            \
+	-DIRECTION OUTPUT
+  
+#--- User Pushbuttons I/O ------------------------------------------------------
+
+#set_io -port_name USER_RESET    \
+	-pin_name F5                  \
+	-fixed true                   \
+	-io_std LVCMOS33              \
+	-DIRECTION INPUT
+
+#set_io -port_name USER_BUTTON1  \
+	-pin_name E13                 \
+	-fixed true                   \
+	-io_std LVCMOS33              \
+	-DIRECTION INPUT
+
+#set_io -port_name USER_BUTTON2  \
+	-pin_name E14                 \
+	-fixed true                   \
+	-io_std LVCMOS33              \
+	-DIRECTION INPUT
+  
+
+#--- FTDI UART I/O -------------------------------------------------------------
+
+# Ports are seen from the external UART
+  
+#set_io -port_name FTDI_UART_RXD   \
+	-pin_name F17                   \
+	-fixed true                     \
+	-io_std LVCMOS33                \
+	-DIRECTION OUTPUT
+
+#set_io -port_name FTDI_UART_TXD   \
+	-pin_name F16                   \
+	-fixed true                     \
+	-io_std LVCMOS33                \
+	-DIRECTION INPUT
+
+
+#--- TRANSCEIVER (SerDes) ------------------------------------------------------
+
+#set_io -port_name SPF_TXFault     \
+	-pin_name D14                   \
+	-fixed true                     \
+	-io_std LVCMOS33                \
+	-DIRECTION INPUT
+ 	
+#set_io -port_name SPF_TX_DIS      \
+	-pin_name F11                   \
+	-fixed true                     \
+	-io_std LVCMOS33                \
+	-DIRECTION OUTPUT
+ 	
+#set_io -port_name SPF_SDA         \
+	-pin_name F13                   \
+	-fixed true                     \
+	-io_std LVCMOS33                \
+	-DIRECTION INPUT
+ 	
+#set_io -port_name SPF_SCL         \
+	-pin_name E8                    \
+	-fixed true                     \
+	-io_std LVCMOS33                \
+	-DIRECTION OUTPUT
+	
+#set_io -port_name SPF_MOD0        \
+	-pin_name F15                   \
+	-fixed true                     \
+	-io_std LVCMOS33                \
+	-DIRECTION OUTPUT
+	
+#set_io -port_name SPF_RS          \
+	-pin_name D16                   \
+	-fixed true                     \
+	-io_std LVCMOS33                \
+	-DIRECTION OUTPUT
+	
+#set_io -port_name SPF_LOS         \
+	-pin_name D17                   \
+	-fixed true                     \
+	-io_std LVCMOS33                \
+	-DIRECTION INPUT
+	
+	
+#--- ADC I/O -------------------------------------------------------------------
+
+#set_io -port_name ADC_CLK_IN  \
+	-pin_name E10               \
+	-fixed true                 \
+	-io_std LVCMOS33            \
+	-DIRECTION OUTPUT
+
+#set_io -port_name ADC_CSn     \
+	-pin_name E1                \
+	-fixed true                 \
+	-io_std LVCMOS33            \
+	-DIRECTION OUTPUT
+
+#set_io -port_name ADC_DRn     \
+	-pin_name E11               \
+	-fixed true                 \
+	-io_std LVCMOS33            \
+	-DIRECTION INPUT
+
+#set_io -port_name ADC_RST     \
+	-pin_name E16               \
+	-fixed true                 \
+	-io_std LVCMOS33            \
+	-DIRECTION OUTPUT
+
+#set_io -port_name ADC_SCK     \
+	-pin_name E5                \
+	-fixed true                 \
+	-io_std LVCMOS33            \
+	-DIRECTION OUTPUT
+
+#set_io -port_name ADC_SDI     \
+	-pin_name E3                \
+	-fixed true                 \
+	-io_std LVCMOS33            \
+	-DIRECTION OUTPUT
+
+#set_io -port_name ADC_SDO     \
+	-pin_name E4                \
+	-fixed true                 \
+	-io_std LVCMOS33            \
+	-DIRECTION INPUT
+
+
+#--- Mikro I/O -----------------------------------------------------------------
+
+#set_io -port_name MIKRO_CS    \
+	-pin_name D1                \
+	-fixed true                 \
+	-io_std LVCMOS33            \
+	-DIRECTION OUTPUT
+
+#set_io -port_name MIKRO_INT   \
+	-pin_name C2                \
+	-fixed true                 \
+	-io_std LVCMOS33            \
+	-DIRECTION INPUT
+
+#set_io -port_name MIKRO_MISO  \
+	-pin_name D12               \
+	-fixed true                 \
+	-io_std LVCMOS33            \
+	-DIRECTION INPUT
+
+#set_io -port_name MIKRO_MOSI  \
+	-pin_name D13               \
+	-fixed true                 \
+	-io_std LVCMOS33            \
+	-DIRECTION OUTPUT
+
+#set_io -port_name MIKRO_PWM   \
+	-pin_name C17               \
+	-fixed true                 \
+	-io_std LVCMOS33            \
+	-DIRECTION OUTPUT
+
+#set_io -port_name MIKRO_RST   \
+	-pin_name C9                \
+	-fixed true                 \
+	-io_std LVCMOS33            \
+	-DIRECTION OUTPUT
+
+#set_io -port_name MIKRO_RX    \
+	-pin_name C4                \
+	-fixed true                 \
+	-io_std LVCMOS33            \
+	-DIRECTION OUTPUT
+
+#set_io -port_name MIKRO_SCK   \
+	-pin_name D11               \
+	-fixed true                 \
+	-io_std LVCMOS33            \
+	-DIRECTION OUTPUT
+
+#set_io -port_name MIKRO_SCL   \
+	-pin_name C6                \
+	-fixed true                 \
+	-io_std LVCMOS33            \
+	-DIRECTION OUTPUT
+
+#set_io -port_name MIKRO_SDA   \
+	-pin_name C7                \
+	-fixed true                 \
+	-io_std LVCMOS33            \
+	-DIRECTION INPUT
+
+#set_io -port_name MIKRO_TX    \
+	-pin_name C5                \
+	-fixed true                 \
+	-io_std LVCMOS33            \
+	-DIRECTION INPUT
+  
+  
+#--- Ardruino I/O --------------------------------------------------------------
+#
+# The following pins can be used in differential setup
+#  Diff Clk 	: ARD_I08 & ARD_I09
+#  Diff Data0 	: ARD_I04 & ARD_I05
+#  Diff Data1   : ARD_I06 & ARD_I07
+#  Diff Data2   : ARD_I010 & ARD_I011
+#  Diff Data3   : ARD_I012 & ARD_I013
+#
+
+#set_io -port_name ARD_IO0     \
+	-pin_name F3                \
+	-fixed true                 \
+	-io_std LVCMOS33            \
+	-DIRECTION INPUT_OUTPUT
+
+#set_io -port_name ARD_IO1     \
+	-pin_name B10               \
+	-fixed true                 \
+	-io_std LVCMOS33            \
+	-DIRECTION INPUT_OUTPUT
+
+#set_io -port_name ARD_IO2     \
+	-pin_name B1                \
+	-fixed true                 \
+	-io_std LVCMOS33            \
+	-DIRECTION INPUT_OUTPUT
+
+#set_io -port_name ARD_IO3     \
+	-pin_name A8                \
+	-fixed true                 \
+	-io_std LVCMOS33            \
+	-DIRECTION INPUT_OUTPUT
+
+#set_io -port_name ARD_IO4     \
+	-pin_name A7                \
+	-fixed true                 \
+	-io_std LVCMOS33            \
+	-DIRECTION INPUT_OUTPUT
+
+#set_io -port_name ARD_IO5     \
+	-pin_name A6                \
+	-fixed true                 \
+	-io_std LVCMOS33            \
+	-DIRECTION INPUT_OUTPUT
+
+#set_io -port_name ARD_IO6     \
+	-pin_name A5                \
+	-fixed true                 \
+	-io_std LVCMOS33            \
+	-DIRECTION INPUT_OUTPUT
+
+#set_io -port_name ARD_IO7     \
+	-pin_name B4                \
+	-fixed true                 \
+	-io_std LVCMOS33            \
+	-DIRECTION INPUT_OUTPUT
+
+#set_io -port_name ARD_IO8     \
+	-pin_name A3                \
+	-fixed true                 \
+	-io_std LVCMOS33            \
+	-DIRECTION INPUT_OUTPUT
+
+#set_io -port_name ARD_IO9     \
+	-pin_name A2                \
+	-fixed true                 \
+	-io_std LVCMOS33            \
+	-DIRECTION INPUT_OUTPUT
+
+#set_io -port_name ARD_IO10    \
+	-pin_name A13               \
+	-fixed true                 \
+	-io_std LVCMOS33            \
+	-DIRECTION INPUT_OUTPUT
+
+#set_io -port_name ARD_IO11    \
+	-pin_name A12               \
+	-fixed true                 \
+	-io_std LVCMOS33            \
+	-DIRECTION INPUT_OUTPUT
+
+#set_io -port_name ARD_IO12    \
+	-pin_name A16               \
+	-fixed true                 \
+	-io_std LVCMOS33            \
+	-DIRECTION INPUT_OUTPUT
+
+#set_io -port_name ARD_IO13    \
+	-pin_name A15               \
+	-fixed true                 \
+	-io_std LVCMOS33            \
+	-DIRECTION INPUT_OUTPUT  
+  
+#set_io -port_name ARD_RESET   \
+	-pin_name E15               \
+	-fixed true                 \
+	-io_std LVCMOS33            \
+	-DIRECTION OUTPUT
+
+#set_io -port_name ARD_SCL     \
+	-pin_name B7                \
+	-fixed true                 \
+	-io_std LVCMOS33            \
+	-DIRECTION INPUT_OUTPUT
+
+#set_io -port_name ARD_SDA     \
+	-pin_name B8                \
+	-fixed true                 \
+	-io_std LVCMOS33            \
+	-DIRECTION INPUT_OUTPUT
+
+  
+#--- PMOD I/O ------------------------------------------------------------------  
+  
+#set_io -port_name PMOD_D0_N   \
+	-pin_name B15               \
+	-fixed true                 \
+	-io_std LVCMOS33            \
+	-DIRECTION INPUT_OUTPUT
+
+#set_io -port_name PMOD_D0_P   \
+	-pin_name B14               \
+	-fixed true                 \
+	-io_std LVCMOS33            \
+	-DIRECTION INPUT_OUTPUT
+
+#set_io -port_name PMOD_D1_N   \
+	-pin_name B13               \
+	-fixed true                 \
+	-io_std LVCMOS33            \
+	-DIRECTION INPUT_OUTPUT
+
+#set_io -port_name PMOD_D1_P   \
+	-pin_name B12               \
+	-fixed true                 \
+	-io_std LVCMOS33            \
+	-DIRECTION INPUT_OUTPUT
+
+#set_io -port_name PMOD_D2_N   \
+	-pin_name C12               \
+	-fixed true                 \
+	-io_std LVCMOS33            \
+	-DIRECTION INPUT_OUTPUT
+
+#set_io -port_name PMOD_D2_P   \
+	-pin_name C11               \
+	-fixed true                 \
+	-io_std LVCMOS33            \
+	-DIRECTION INPUT_OUTPUT
+
+#set_io -port_name PMOD_D3_N   \
+	-pin_name B3                \
+	-fixed true                 \
+	-io_std LVCMOS33            \
+	-DIRECTION INPUT_OUTPUT
+
+#set_io -port_name PMOD_D3_P   \
+	-pin_name B2                \
+	-fixed true                 \
+	-io_std LVCMOS33            \
+	-DIRECTION INPUT_OUTPUT
+  
+
+#--- Gigabit Ethernet I/O ------------------------------------------------------
+  
+#set_io -port_name FPGA_PHY_CLK_50M (same pin as CLK1_50M)
+
+#set_io -port_name PHY_MDC       \
+	-pin_name J2                  \
+	-fixed true                   \
+	-io_std LVCMOS25              \
+	-DIRECTION OUTPUT
+
+#set_io -port_name PHY_MDINTn    \
+	-pin_name J4                  \
+	-fixed true                   \
+	-io_std LVCMOS25              \
+	-DIRECTION INPUT
+
+#set_io -port_name PHY_MDIO      \
+	-pin_name H2                  \
+	-fixed true                   \
+	-io_std LVCMOS25              \
+	-DIRECTION INPUT
+
+#set_io -port_name PHY_RSTn      \
+	-pin_name L8                  \
+	-fixed true                   \
+	-io_std LVCMOS25              \
+	-DIRECTION OUTPUT
+
+#set_io -port_name PHY_RX_CLK    \
+	-pin_name K3                  \
+	-fixed true                   \
+	-io_std LVCMOS25              \
+	-DIRECTION INPUT
+
+#set_io -port_name PHY_RX_CTRL   \
+	-pin_name K5                  \
+	-fixed true                   \
+	-io_std LVCMOS25              \
+	-DIRECTION INPUT
+
+#set_io -port_name PHY_RXD0      \
+	-pin_name J9                  \
+	-fixed true                   \
+	-io_std LVCMOS25              \
+	-DIRECTION INPUT
+
+#set_io -port_name PHY_RXD1      \
+	-pin_name K1                  \
+	-fixed true                   \
+	-io_std LVCMOS25              \
+	-DIRECTION INPUT
+
+#set_io -port_name PHY_RXD2      \
+	-pin_name K6                  \
+	-fixed true                   \
+	-io_std LVCMOS25              \
+	-DIRECTION INPUT
+
+#set_io -port_name PHY_RXD3      \
+	-pin_name K4                  \
+	-fixed true                   \
+	-io_std LVCMOS25              \
+	-DIRECTION INPUT
+
+#set_io -port_name PHY_TX_CLK    \
+	-pin_name J8                  \
+	-fixed true                   \
+	-io_std LVCMOS25              \
+	-DIRECTION OUTPUT
+
+#set_io -port_name PHY_TX_EN     \
+	-pin_name L5                  \
+	-fixed true                   \
+	-io_std LVCMOS25              \
+	-DIRECTION OUTPUT
+
+#set_io -port_name PHY_TXD0      \
+	-pin_name K8                  \
+	-fixed true                   \
+	-io_std LVCMOS25              \
+	-DIRECTION OUTPUT
+
+#set_io -port_name PHY_TXD1      \
+	-pin_name L1                  \
+	-fixed true                   \
+	-io_std LVCMOS25              \
+	-DIRECTION OUTPUT
+
+#set_io -port_name PHY_TXD2      \
+	-pin_name L2                  \
+	-fixed true                   \
+	-io_std LVCMOS25              \
+	-DIRECTION OUTPUT
+
+#set_io -port_name PHY_TXD3      \
+	-pin_name L3                  \
+	-fixed true                   \
+	-io_std LVCMOS25              \
+	-DIRECTION OUTPUT
+  
+  
+#--- PAN9320 Wifi I/O ----------------------------------------------------------
+  
+#set_io -port_name BT_FREQ_w     \
+	-pin_name C14                 \
+	-fixed true                   \
+	-io_std LVCMOS33              \
+	-DIRECTION OUTPUT
+
+#set_io -port_name BT_GRANTN_w   \
+	-pin_name E9                  \
+	-fixed true                   \
+	-io_std LVCMOS33              \
+	-DIRECTION INPUT
+
+#set_io -port_name BT_REQ_w      \
+	-pin_name F10                 \
+	-fixed true                   \
+	-io_std LVCMOS33              \
+	-DIRECTION OUTPUT
+
+#set_io -port_name BT_STATE_w    \
+	-pin_name E6                  \
+	-fixed true                   \
+	-io_std LVCMOS33              \
+	-DIRECTION OUTPUT
+
+#set_io -port_name CTS_w         \
+	-pin_name D2                  \
+	-fixed true                   \
+	-io_std LVCMOS33              \
+	-DIRECTION OUTPUT
+
+#set_io -port_name DUAL_STAT_w   \
+	-pin_name D4                  \
+	-fixed true                   \
+	-io_std LVCMOS33              \
+	-DIRECTION INPUT
+
+#set_io -port_name DUAL_SW_w     \
+	-pin_name D3                  \
+	-fixed true                   \
+	-io_std LVCMOS33              \
+	-DIRECTION OUTPUT
+
+#set_io -port_name FACT_RST_w    \
+	-pin_name A17                 \
+	-fixed true                   \
+	-io_std LVCMOS33              \
+	-DIRECTION OUTPUT
+
+#set_io -port_name nRESET_w      \
+	-pin_name F12                 \
+	-fixed true                   \
+	-io_std LVCMOS33              \
+	-DIRECTION OUTPUT
+  
+#set_io -port_name RTS_w         \
+	-pin_name C1                  \
+	-fixed true                   \
+	-io_std LVCMOS33              \
+	-DIRECTION INPUT
+
+#set_io -port_name RXD_w         \
+	-pin_name B5                  \
+	-fixed true                   \
+	-io_std LVCMOS33              \
+	-DIRECTION OUTPUT
+
+#set_io -port_name TXD_w         \
+	-pin_name B9                  \
+	-fixed true                   \
+	-io_std LVCMOS33              \
+	-DIRECTION INPUT
+
+#set_io -port_name WAKE_UP_w     \
+	-pin_name C15                 \
+	-fixed true                   \
+	-io_std LVCMOS33              \
+	-DIRECTION OUTPUT
+  
+   
+#--- 64 Mbit Serial Flash I/O --------------------------------------------------
+  
+#set_io -port_name PF_IO_CLK         \
+	-pin_name J1                  		\
+	-fixed true                   		\
+	-io_std LVCMOS25              		\
+	-DIRECTION OUTPUT
+
+#set_io -port_name PF_IO_SDI         \
+	-pin_name F1                  		\
+	-fixed true                   		\
+	-io_std LVCMOS25              		\
+	-DIRECTION INPUT
+
+#set_io -port_name PF_IO_SDO         \
+	-pin_name F2                  		\
+	-fixed true                   		\
+	-io_std LVCMOS25              		\
+	-DIRECTION OUTPUT
+
+#set_io -port_name PF_IO_SPI_HOLDn   \
+	-pin_name M8                  		\
+	-fixed true                   		\
+	-io_std LVCMOS25              		\
+	-DIRECTION OUTPUT
+
+#set_io -port_name PF_IO_SPI_WPn     \
+	-pin_name M7                  		\
+	-fixed true                   		\
+	-io_std LVCMOS25              		\
+	-DIRECTION OUTPUT
+
+#set_io -port_name PF_IO_SS          \
+	-pin_name H1           		       	\
+	-fixed true               		    \
+	-io_std LVCMOS25             			\
+	-DIRECTION OUTPUT
+
+
